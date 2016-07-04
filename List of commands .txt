@@ -1,4 +1,4 @@
-1. Робота з бренчами
+1. Branches
 
 git clone https://github.com/olenatretyak/6-vcs-advanced
 git checkout -b "architecture"
