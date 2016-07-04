@@ -1,0 +1,105 @@
+1. Ðîáîòà ç áðåí÷àìè
+
+git clone https://github.com/olenatretyak/6-vcs-advanced
+git checkout -b "architecture"
+mkdir assets
+mkdir uploads
+git add .
+git commit -m "Added first files"
+echo >> assets/all.js
+echo >> assets/css.js
+git add .
+git commit -m “added all.js and css.js”
+git push origin architecture
+echo >> uploads/.keep
+echo >> .gitignore
+echo uploads/* >> .gitignore
+echo !.keep >> .gitignore
+git add .
+git commit -m "added .gitignore file"
+git checkout master
+git merge architecture 
+git branch --delete architecture 
+git push origin master
+git push origin --delete architecture 
+
+
+2. Rebase
+
+git clone https://github.com/olenatretyak/6-vcs-advanced_2
+git branch secondBranch
+echo >> list.text
+git add .
+git commit -m "added text-file"
+git add .
+git commit -m "added img-files"
+git checkout secondBranch
+git rebase master
+git add .
+git commit -m "added some changes to text file"
+git checkout master
+git merge secondBranch
+git branch --delete secondBranch
+git push origin master
+
+
+3. Tag
+
+git clone https://github.com/olenatretyak/6-vcs-advanced_3
+echo >> list.text
+git add .
+git commit -m "added text file"
+mkdir css
+echo >> css/style.css
+git add .
+git commit -m "added css directory"
+mkdir images
+git add .
+git commit -m "added images directory"
+git tag v1
+git push origin v1
+
+4. Submodule 
+git clone https://github.com/olenatretyak/6-vcs-advanced_4
+git submodule add git://github.com/chneukirchen/rack.git rack
+git commit -m "added new submodule"
+git push origin master
+
+5. Git Pages
+
+git clone https://github.com/olenatretyak/6-vcs-advanced_5
+git checkout -b "gh-pages"
+git add .
+git commit -m "added index.html"
+git push origin gh-pages
+
+https://olenatretyak.github.io/6-vcs-advanced_5/
+
+git add .
+git commit -m "maked changes in index.html file"
+git push origin gh-pages
+
+https://olenatretyak.github.io/6-vcs-advanced_5/
+
+6. Conflict
+
+git clone https://github.com/olenatretyak/6-vcs-advanced_6
+echo >> file.text
+git add .
+git commit -m "added file.txt"
+git checkout -b "branch"
+git add .
+git commit -m "changed file.txt"
+git checkout master
+git add .
+git commit -m "changed file.txt on master branch"
+git merge branch
+git merge —abort
+git add .
+git commit -m "fixed conflict"
+git merge branch
+git push
+
+
+
+
